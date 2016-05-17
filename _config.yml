@@ -1,7 +1,7 @@
 # Site
 title:              Hazem Samir
 bio:                'Computer Engineering Student'
-description:        "Blog for personal, techincal, thoughts, new things I learn or create, problems I solve and things L found useful on the internet"
+description:        "Blog for personal, techincal, thoughts, new things I learn or create, problems I solve and things I found useful on the internet"
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/me.jpg'
@@ -13,7 +13,7 @@ url:                http://hazemsamir.github.io
 # Jekyll
 permalink:          /:title/
 markdown:           kramdown
-highlighter:        black
+highlighter:        rouge
 kramdown:
   auto_ids:         true
   footnote_nr:      1
