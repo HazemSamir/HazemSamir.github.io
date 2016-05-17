@@ -40,7 +40,7 @@ There were 3 questions:
 
 1. What is fork bomb?
 
-2. You are stuck at a desert island and you have to choose 5 command lines to live with, what would you choose?
+2. You are stuck at a desert island and you have to choose 5 command-line utilities to live with, what would you choose?
 
 3. Explain how the linux boot works as much detailed as possible starting from pressing the power button.
 
