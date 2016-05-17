@@ -19,7 +19,7 @@ So the first impression about the company office was nice. I only went to two te
 
 # Exam Structure:
 
-The exam was a paper based for one hour. You should choose 3 out of 7 topics : System Structure, Security, Data Base, Web Development, Mobile Development, Linux and Open Source and Algorithms and Data Structures. Well, most of the topics covers the courses which we study in the 3rd year at our faculty. However I chose the topics I most familiar with: web, linux and algorithms.
+It was a paper based exam for one hour. You should choose 3 out of 7 topics : System Structure, Security, DataBases, Web Development, Mobile Development, Open-Source&Linux and Algorithms&DataStructures. Well, most of the topics covers the courses which we study in the 3rd year at our faculty. However I chose the topics I most familiar with: web, linux and algorithms.
 
 
 ## Web Development Part:
