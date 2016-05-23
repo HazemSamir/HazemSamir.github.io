@@ -2,7 +2,7 @@
 layout: post
 title: "eSpace internship exam"
 date: 2016-05-17
-posts: tech
+type: tech
 excerpt: "my experience on espace internship exam"
 tags: [espace, intern, internship, exam]
 comments: true

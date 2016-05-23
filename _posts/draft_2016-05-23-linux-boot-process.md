@@ -2,7 +2,7 @@
 layout: post
 title: "Linux boot process in a nutshell"
 date: 2016-05-22
-posts: tech
+type: tech
 excerpt: "what happens in the background from pressing the power button till the prompt"
 tags: [espace, intern, exam, linux, boot, grup, bios]
 comments: true
