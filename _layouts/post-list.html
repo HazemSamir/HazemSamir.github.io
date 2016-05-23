@@ -12,7 +12,6 @@ layout: compress
 <body>
     {% include nav.html %}
     <!-- Header -->
-    <header class="header" role="banner">
         <div class="wrapper animated fadeIn">
             <div class="content">
                 <div class="post-title">
@@ -23,12 +22,14 @@ layout: compress
                 </div>
                 <div class="post-list">
                     {% for post in site.posts %}
-                        {% if post.project == null or post.type == null
-                            or (page.posts == 'tech' and post.type=='tech')
-                            or (page.posts == 'personal' and post.type=='personal') %}
+                        {% if post.project == null
+                              and (post.type == null or page.type == post.type) %}
                     <ul>
-                        <li class="wow fadeInLeft" data-wow-duration="1.5s">
+                        <li class="wow" data-wow-duration="1.5s">
                             <a class="zoombtn" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                            <div style="color:gray">
+                                <i class = "fa fa-clock-o"></i> {{post.date}}
+                            </div>
                             <p>{{ post.excerpt }}</p>
                             <a href="{{ site.url }}{{ post.url }}" class="btn zoombtn">Read More</a>
                         </li>
@@ -38,7 +39,6 @@ layout: compress
                 </div>
             </div>
         </div>
-    </header>
     {% include scripts.html %}
     <script src="{{ site.url }}/assets/js/wow.min.js"></script>
     <script type="text/javascript">(new WOW).init();</script>

@@ -11,8 +11,6 @@ layout: compress
 </head>
 <body>
     {% include nav.html %}
-    <!-- Header -->
-    <header class="header" role="banner">
         <div class="wrapper animated fadeIn">
             <div class="content">
                 <div class="post-title {% if page.feature %} feature {% endif %}">
@@ -42,7 +40,6 @@ layout: compress
                 </div>
             </div>
         </div>
-    </header>
     {% include scripts.html %}
     {% if site.mathjax == true %}
     <!-- MathJax -->

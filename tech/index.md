@@ -1,6 +1,6 @@
 ---
 layout: post-list
 title: Technical Posts
-posts: tech
+type: tech
 excerpt: "A list of technical posts"
 ---

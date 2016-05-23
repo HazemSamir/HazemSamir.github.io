@@ -10,13 +10,12 @@ layout: compress
     {% include head.html %}
 </head>
 <body>
-    {% include nav.html %}
     <!-- Header -->
     <header class="header flex" role="banner">
         <div class="container animated fadeIn">
             <div class="row">
                     <a href="{{ site.url }}">
-                        <img src="{{ site.logo }}" class="img-circle zoombtn animated rotateIn">
+                        <img src="{{ site.logo }}" class="img-circle zoombtn">
                     </a>
                     <h3 class="title">
                         <a class="zoombtn" href="{{ site.url }}">
@@ -35,11 +34,12 @@ layout: compress
                          <a class="btn zoombtn" href="{{ site.url }}/about">
                          About
                          </a>
-                         <a class="btn zoombtn" href="{{ site.url }}/personal">
-                         Personal Posts
-                         </a>
+                         <!--
+                         <a class="btn zoombtn" href="{{ site.url }}/projects">
+                         Projects
+                         </a> -->
                          <a class="btn zoombtn" href="{{ site.url }}/tech">
-                         Techincal Posts
+                         Blog Posts
                          </a>
                          <!--<a class="btn zoombtn" href="{{ site.url }}/projects">
                          Projects

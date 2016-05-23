@@ -2,3 +2,9 @@
 
 - title: Projects
   url: /projects/
+
+- title: Posts
+  url: /tech/
+
+- title: Tags
+  url: /tags/
