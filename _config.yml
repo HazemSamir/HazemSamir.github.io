@@ -1,14 +1,14 @@
 # Site
 title:              Hazem Samir
-bio:                'Computer Engineering Student'
-description:        "Blog for personal, techincal, thoughts, new things I learn or create, problems I solve and things I found useful on the internet"
-reading_time:       true
+bio:                'I am a computer engineering student who love learning'
+description:        "I am a computer engineering student who love learning"
+reading_time:       false
 words_per_minute:   200
 logo:               'assets/img/me.jpg'
-background:         'assets/img/placeholder-big.jpg'
+background:         'assets/img/background_single_color.png'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             en_US
-url:                http://hazemsamir.github.io
+url:                http://hazemsamir.github.io/
 
 # Jekyll
 permalink:          /:title/
@@ -26,13 +26,13 @@ sass:
   style:            compressed
 
 # Comments
-disqus_shortname:   taylantatli
+disqus_shortname:   hazemsamirblog
 
 # Social
 # if you don't have any of social below, comment the line.
-#google:
+google:
   #plus:            #username
-  #analytics:
+  analytics:        UA-78144044-1
   #verify:
   #ad-client:
   #ad-slot:
