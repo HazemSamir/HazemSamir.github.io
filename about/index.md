@@ -1,5 +1,6 @@
 ---
 layout: page
+nav: false
 title: About
 tags: [about]
 date: 2016-05-17
