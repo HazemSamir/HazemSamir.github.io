@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux boot process in a nutshell"
-date: 2016-05-22
+date: 2016-05-24
 type: tech
 excerpt: "what happens in the background from pressing the power button till the prompt"
 tags: [espace, intern, exam, linux, boot, grup, bios]
@@ -37,7 +37,7 @@ The "Quite" Long Answer:
 
 ## 1. BIOS:
 
-**BIOS** stands for _**B**asic **O**utput **I**nput **S**ystem_. Obviously it is the first thing to work after pressing the power button and it is OS independent (depends on the hardware). [Where is BIOS replaced?](#where-is-bios-replaced)
+**BIOS** stands for _**B**asic **O**utput **I**nput **S**ystem_. Obviously it is the first thing to work after pressing the power button and it is OS independent (depends on the hardware). [Read: Where is BIOS replaced?](#where-is-bios-replaced)
 
 Everyone has an experience with BIOS ugly black screen that shows up when you press the power button and its options that can be triggered by pressing delete, alt or f-keys getting you into a scary text screen with complicated settings.
 
@@ -46,9 +46,9 @@ Everyone has an experience with BIOS ugly black screen that shows up when you pr
 1. Run a POST (Power On Self Test) checking different input/output devices and the connected drivers, making sure every thing is well for the next step.
 2. Search sequentially for a bootable driver (that contains a valid boot loader program) then execute the boot loader from it.
 
-[Change the BIOS search order](#change-the-bios-search-order)
+[Read: Change the BIOS search order](#change-the-bios-search-order)
 
-[How the BIOS check a valid bootable driver?](#how-the-bios-check-a-valid-bootable-driver)
+[Read: How the BIOS check a valid bootable driver?](#how-the-bios-check-a-valid-bootable-driver)
 
 ## 2. Boot Loader:
 
@@ -63,7 +63,7 @@ After that the Linux kernel is loaded into the memory and gives control to it.
 
 An OS Kernel is the part of the system that is responsible for controlling/interacting with the hardware, memory management and many other low level staff.
 
-[What Linux really is?](#what-linux-really-is)
+[Read: What Linux really is?](#what-linux-really-is)
 
 Linux kernel is loaded into memory ([see appendix](#kernel-loading-into-memory)) then calls the setup() function that initializes memory and configures the various hardware (processors, I/O, and storage devices).
 
@@ -71,12 +71,15 @@ Then it calls the Init process as first process to be run in the system.
 
 ## 4. Init
 
-**Init** is short for _initialization_. Typically, the Init process can be find in the directory `/sbin/Init`. [What a process is?](#what-a-process-is)
+**Init** is short for _initialization_. Typically, the Init process can be find in the directory `/sbin/Init`.
+
+[Read: What a process is?](#what-a-process-is)
 
 Init's job is to get everything running the way it should be. Essentially it establishes and operates the entire user space. This includes checking and mounting file systems, starting up necessary user services, and ultimately switching to a user-environment when system startup is completed.
 
 
-[Variation of init](#variation-of-init)
+[Read: Are there variations of init?](#variation-of-init)
+
 
 ## Finaly
 
@@ -87,7 +90,7 @@ by this time the user would be prompted to enter the credentials after launching
 You can get a quick _visual_ overview you can watch this [9 mins video](https://www.youtube.com/watch?v=y3IbvEjXF5M) from the youtube.
 
 
-__If you reached here, my congratulations for you, You are a Hero! =D if you want to get more information read the following appendix.__
+__If you reached here, my congratulations for you. You are a Hero! =D if you still want to get more information read the following appendix.__
 
 
 --------------------------------------------
@@ -112,11 +115,11 @@ When the BIOS searches a driver basically hard disk or (flash memory), it looks 
 
 It's a free software from the GNU project. One of its advantages that it reads its configuration from a file-system rather than being embedded with the MBR. This allows the configuration file to represented in a human-readable format and to be modified easily by the user in the run time.
 
-___As a quick note___ there is another type of boot loader like SYSLINUX/ISOLINUX for booting from the FAT file-systems (used in live USBs if you tried it before).
+___As a quick note___ there is another type of boot loaders like SYSLINUX/ISOLINUX which used for booting from the FAT file-systems (and used to boot from live USBs if you tried it before).
 
 ## What Linux really is?
 
-Well Linux is actually the name of the kernel (not the whole OS). The reset of the programs come from different resources mainly the GNU project so some of people insists on using GNU/Linux naming the whole OS. You can find more about [GNU/Linux naming controversy](https://en.wikipedia.org/wiki/GNU/Linux_naming_controversy)
+Well Linux is actually the name of the kernel (not the whole OS). The reset of the programs come from different resources mainly the GNU project so some of people insist on using GNU/Linux naming the whole OS. You can find more about [GNU/Linux naming controversy](https://en.wikipedia.org/wiki/GNU/Linux_naming_controversy)
 
 ## Kernel loading into memory
 
