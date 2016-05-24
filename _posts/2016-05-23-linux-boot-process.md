@@ -8,9 +8,9 @@ tags: [espace, intern, exam, linux, boot, grup, bios]
 comments: true
 ---
 
-In my last post about [espace exam](http://hazemsamir.github.io/espace-intern-exam/), I mentioned a question about linux boot process. It was one of questions that I could not answer so I watched many videos and read many articles explaining the process.
+In my last post about [espace exam](http://hazemsamir.github.io/espace-intern-exam/), I mentioned a question about linux boot process. It was one of the questions that I couldn't answer then, so I watched many videos and read articles explaining the process.
 
-Well, basically the following is a kind of reformatting what I understood from wikipedia articles and some youtube videos, so don't bother seeing some text that are copied and pasted from some where =).
+Well, basically the rest of the post is kind of reformatting what I understood from wikipedia articles and some youtube videos, so don't bother seeing some text copied and pasted from some where =).
 
 > ## Explain how the linux boot works as much detailed as possible starting from pressing the power button.
 
@@ -33,13 +33,13 @@ We can summarize the process in the following steps:
 
 
 The "Quite" Long Answer:
-==================
+========================
 
 ## 1. BIOS:
 
-**BIOS** stands for _**B**asic **O**utput **I**nput **S**ystem_. Obviously it is the first thing to work after pressing the power button and it is OS independent (depends on the hardware). [Read: Where is BIOS replaced?](#where-is-bios-replaced)
+**BIOS** stands for _**B**asic **I**nput **O**utput **S**ystem_. Obviously it is the first thing to work after pressing the power button. It is OS independent (depends on the hardware). [Read: Where is BIOS replaced?](#where-is-bios-replaced)
 
-Everyone has an experience with BIOS' ugly black screen that shows up when you turn on the computer and the option to press delete, alt or f-keys to get you into a scary text screen with complicated settings.
+Everyone has an experience with BIOS ugly black screen that shows up when you turn on the computer and the option to press delete, alt or f-keys to get you into a scary text screen with complicated settings.
 
 **Briefly BIOS has two basic tasks:**
 
@@ -53,7 +53,7 @@ Everyone has an experience with BIOS' ugly black screen that shows up when you t
 ## 2. Boot Loader:
 
 The first sector of the bootable disk is called MBR (Master Boot Record) as it stores information about the boot loader.
-There are many types of boot loaders and they may have one or more stages. I chose **GRUP** as it the one used on my machine:
+There are many types of boot loaders and some of them may have one or more stages. I am goint to talk about **GRUP** as it the one used on my machine:
 
 **GRUP** stands for _**GR**and **U**nified **B**ootloader_ ([see what are the advantages of GRUB?](#what-are-the-advantages-of-grub)). It has two major versions _GRUB 1_ and _GRUP 2_. The later adds the features of detecting different OS installed on the machine automatically and gives the user the option to decide which OS to boot up.
 
@@ -111,11 +111,11 @@ You may be familiar with that if you tried to install an OS on a machine before,
 
 When the BIOS searches a driver, basically hard disk or (flash memory), it looks at the first sector of it. It checks the first bytes that works as boot loader flags. If those bytes were valid, it considers the driver bootable and switch to the boot loader, else it considers the drive as unbootable.
 
-## What are the advantages of GRUB
+## What are the advantages of GRUB?
 
-It's a free software from the GNU project. One of its advantages that it reads its configuration from file-system rather than being embedded with the MBR. This allows the configuration file to represented in a human-readable format and to be modified easily by the user in the run time (find the conf file in `/boot/grub/grub.conf`).
+It's a free software from the GNU project. One of its advantages that it reads its configuration from file-system rather than being embedded with the MBR. This allows the configuration file to represented in a human-readable format and to be modified easily by the user in the run time (find the conf file in `/boot/grub/grub.conf`). The GRUB also provides a basic command line utility that can be used to fix things if there where kind of errors or mis-configurations.
 
-___As a quick note___ there is another type of boot loaders like SYSLINUX/ISOLINUX which used for booting from the FAT file-systems (and used to boot from live USBs if you tried it before).
+___As a quick note:___ there is another type of boot loaders like SYSLINUX/ISOLINUX which used for booting from the FAT file-systems (and used to boot from live USBs if you tried it before).
 
 ## What Linux really is?
 
@@ -135,10 +135,14 @@ Init is the root process (parent of all other processes in the system) and has n
 
 Init process has a run level that is passed to as a parameter from the kernel. Typical init has 7 run levels and we care about:
 
-.. 0 : halt
-.. 3 : full multi user
-.. 5 : X11 (GUI server)
-.. 6 : reboot
+* 0 : halt
+* 3 : full multi user
+* 5 : X11 (GUI server)
+* 6 : reboot
+
+## What is kernel panic?
+
+It happens when the kernel can not call the init process due to misconfiguration or missing the process file.
 
 ## Variation of init:
 
