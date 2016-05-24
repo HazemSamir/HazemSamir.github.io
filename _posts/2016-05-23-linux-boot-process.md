@@ -71,7 +71,7 @@ Then it calls the Init process as first process to be run in the system.
 
 ## 4. Init
 
-**Init** is short for _initialization_. Typically, the Init process can be find in the directory `/sbin/Init`.
+**Init** is short for _initialization_. Typically, the init process can be find in the directory `/sbin/init`.
 
 [Read: What a process is?](#what-a-process-is)
 
@@ -131,7 +131,7 @@ Briefly, in Linux when you run a program, it launches a group of one or more pro
 
 Init is the root process (parent of all other processes in the system) with no parent process and its PID=**1**, and eventually the last process to terminate (while shutting down).
 
-## What is run levels of Init?
+## What is run levels of init?
 
 Init process has many run levels of shell scripts to be run, the run level is passed to it as a parameter from the kernel. Typical init has 7 run levels and we care about:
 
