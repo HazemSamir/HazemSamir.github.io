@@ -127,9 +127,9 @@ A full version of Linux kernel is around 70 MB in size. It may be loaded into me
 
 ## What a process is?
 
-Briefly, in Linux when you run a program, it launches group of process (you can see them by the command `ps -ef`). Any process has exactly one parent process (the one that called it) and one or more child processes (processes called by it). So it some thing like a tree of processes, and each process has an ID number called PID.
+Briefly, in Linux when you run a program, it launches a group of one or more processes (you can see them by the command `ps -ef`). Any process has exactly one parent process (the one that called it or init) and one or more child processes (processes called by it). So it is some thing like a tree of processes, each process has an unique ID number called PID.
 
-Init is the root process (parent of all other processes in the system) and has no parent process and its PID = **1**, and eventually the last process to terminate (shutdown).
+Init is the root process (parent of all other processes in the system) with no parent process and its PID=**1**, and eventually the last process to terminate (while shutting down).
 
 ## What is run levels of Init?
 
