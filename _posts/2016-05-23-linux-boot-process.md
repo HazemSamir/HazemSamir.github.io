@@ -61,7 +61,7 @@ After that, the Linux kernel is loaded into the memory and is given control.
 
 ## 3. Kernel:
 
-An OS Kernel is the part of the system, it is responsible for controlling/interacting with the hardware, memory management and many other low level stuff.
+An OS Kernel is a part of the system responsible for controlling/interacting with the hardware, memory management and many other low level stuff.
 
 [Read: What Linux really is?](#what-linux-really-is)
 
