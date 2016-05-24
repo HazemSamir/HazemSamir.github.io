@@ -39,12 +39,12 @@ The "Quite" Long Answer:
 
 **BIOS** stands for _**B**asic **O**utput **I**nput **S**ystem_. Obviously it is the first thing to work after pressing the power button and it is OS independent (depends on the hardware). [Read: Where is BIOS replaced?](#where-is-bios-replaced)
 
-Everyone has an experience with BIOS ugly black screen that shows up when you press the power button and its options that can be triggered by pressing delete, alt or f-keys getting you into a scary text screen with complicated settings.
+Everyone has an experience with BIOS' ugly black screen that shows up when you turn on the computer and the option to press delete, alt or f-keys to get you into a scary text screen with complicated settings.
 
 **Briefly BIOS has two basic tasks:**
 
-1. Run a POST (Power On Self Test) checking different input/output devices and the connected drivers, making sure every thing is well for the next step.
-2. Search sequentially for a bootable driver (that contains a valid boot loader program) then execute the boot loader from it.
+1. Runs a POST (Power On Self Test) checking different input/output devices and the connected drivers, making sure every thing is well for the next step.
+2. Searches sequentially for a bootable driver (that contains a valid boot loader program) then execute the boot loader from it.
 
 [Read: Change the BIOS search order](#change-the-bios-search-order)
 
@@ -52,16 +52,16 @@ Everyone has an experience with BIOS ugly black screen that shows up when you pr
 
 ## 2. Boot Loader:
 
-The first sector of the bootable disk partition is called MBR (Master Boot Record) and it stores information about the boot loader.
+The first sector of the bootable disk is called MBR (Master Boot Record) as it stores information about the boot loader.
 There are many types of boot loaders and they may have one or more stages. I chose **GRUP** as it the one used on my machine:
 
-**GRUP** stands for _**GR**and **U**nified **B**ootloader_ ([see what are the advantages of GRUB?](#what-are-the-advantages-of-grub)). It has two major versions _GRUB1_ and _GRUP 2_. The later adds the features of detecting different OS installed on the machine automatically and gives the user the option to decide which OS to boot up.
+**GRUP** stands for _**GR**and **U**nified **B**ootloader_ ([see what are the advantages of GRUB?](#what-are-the-advantages-of-grub)). It has two major versions _GRUB 1_ and _GRUP 2_. The later adds the features of detecting different OS installed on the machine automatically and gives the user the option to decide which OS to boot up.
 
-After that the Linux kernel is loaded into the memory and gives control to it.
+After that, the Linux kernel is loaded into the memory and is given control.
 
 ## 3. Kernel:
 
-An OS Kernel is the part of the system that is responsible for controlling/interacting with the hardware, memory management and many other low level staff.
+An OS Kernel is the part of the system, it is responsible for controlling/interacting with the hardware, memory management and many other low level stuff.
 
 [Read: What Linux really is?](#what-linux-really-is)
 
@@ -83,14 +83,14 @@ Init's job is to get everything running the way it should be. Essentially it est
 
 ## Finaly
 
-by this time the user would be prompted to enter the credentials after launching the different services for the GUI interface.
+By this time the user would be prompted to enter the credentials, after launching the different services for the GUI.
 
 --------------------------------------------
 
-You can get a quick _visual_ overview you can watch this [9 mins video](https://www.youtube.com/watch?v=y3IbvEjXF5M) from the youtube.
+You can get a quick _visual_ overview by watching this [9 mins youtube video](https://www.youtube.com/watch?v=y3IbvEjXF5M).
 
 
-__If you reached here, my congratulations for you. You are a Hero! =D if you still want to get more information read the following appendix.__
+__If you reached here, my congratulations for you. You are a Hero! =D if you still want to get more information read the appendix.__
 
 
 --------------------------------------------
@@ -101,35 +101,44 @@ Appendix
 
 ## Where is BIOS replaced?
 
-Historicaly it is was placed on a ROM(read only memory) and to change it you have to change the memory chip. Then in modern computers, it is stored in a flash memory allowing it to be changed, configured, updated many times without replacing any chips.
+Historically it is was placed on a ROM(read only memory) and to change it you have to change the memory chip. Then in modern computers, it is stored in a flash memory allowing it to be changed, configured, updated many times without replacing any chips.
 
 ## Change the BIOS search order
 
-You may be familiar with that if you tried to install an OS on a machine before, first you connect a flash memory or a CD disk that contains an image of your OS. Then you can change the order the BIOS searching the drivers so that it boots from your removable disk first instead of the local hard disk.
+You may be familiar with that if you tried to install an OS on a machine before, first you connect a flash memory or a CD disk that contains an image of your OS. Then you can change the order the BIOS searching the drivers so that it boots from your removable disk first instead of the local hard disk. This can be done from the interactive BIOS settings window.
 
 ## How the BIOS check a valid bootable driver?
 
-When the BIOS searches a driver basically hard disk or (flash memory), it looks at the first sector of it. It checks the first bytes that works as boot loader flags. If that bytes was valid it consider it as a bootable drive and switch to the boot loader, else it consider it as unbootable drive.
+When the BIOS searches a driver, basically hard disk or (flash memory), it looks at the first sector of it. It checks the first bytes that works as boot loader flags. If those bytes were valid, it considers the driver bootable and switch to the boot loader, else it considers the drive as unbootable.
 
 ## What are the advantages of GRUB
 
-It's a free software from the GNU project. One of its advantages that it reads its configuration from a file-system rather than being embedded with the MBR. This allows the configuration file to represented in a human-readable format and to be modified easily by the user in the run time.
+It's a free software from the GNU project. One of its advantages that it reads its configuration from file-system rather than being embedded with the MBR. This allows the configuration file to represented in a human-readable format and to be modified easily by the user in the run time (find the conf file in `/boot/grub/grub.conf`).
 
 ___As a quick note___ there is another type of boot loaders like SYSLINUX/ISOLINUX which used for booting from the FAT file-systems (and used to boot from live USBs if you tried it before).
 
 ## What Linux really is?
 
-Well Linux is actually the name of the kernel (not the whole OS). The reset of the programs come from different resources mainly the GNU project so some of people insist on using GNU/Linux naming the whole OS. You can find more about [GNU/Linux naming controversy](https://en.wikipedia.org/wiki/GNU/Linux_naming_controversy)
+Well Linux is actually the name of the kernel (not the whole OS). The reset of the programs come from different resources, mainly the GNU project, so some of people insist on using the term GNU/Linux naming the whole OS not just Linux. You can read more about [GNU/Linux naming controversy](https://en.wikipedia.org/wiki/GNU/Linux_naming_controversy).
 
 ## Kernel loading into memory
 
-Linux kernel may be loaded into memory by either reading it directly form the file-system (slower) or read a compressed image of it then use the CPU to decompress it into the memory (faster).
+A full version of Linux kernel is around 70 MB in size. It may be loaded into memory by either reading it directly form the file-system (slower) or read a compressed image of it then use the CPU to decompress the image into the memory (faster, less file-system access and usage).
 
-## what a process is?
+## What a process is?
 
 Briefly, in Linux a program you run launches group of process (you can see them by the command `ps -ef`). Any process has exactly one parent process (the one that called it) and one or more child processes (processes called by it). So it some thing like a tree of processes, and each process has an number(ID) called ID.
 
 Init is the root process (parent of all other processes in the system) and has no parent process and its PID = **1**, and eventually the last process to terminate (shutdown).
+
+## What is run levels of Init?
+
+Init process has a run level that is passed to as a parameter from the kernel. Typical init has 7 run levels and we care about:
+
+.. 0 : halt
+.. 3 : full multi user
+.. 5 : X11 (GUI server)
+.. 6 : reboot
 
 ## Variation of init:
 
