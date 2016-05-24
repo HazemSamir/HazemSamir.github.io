@@ -1,0 +1,133 @@
+---
+layout: post
+title: "Linux boot process in a nutshell"
+date: 2016-05-22
+type: tech
+excerpt: "what happens in the background from pressing the power button till the prompt"
+tags: [espace, intern, exam, linux, boot, grup, bios]
+comments: true
+---
+
+In my last post about [espace exam](http://hazemsamir.github.io/espace-intern-exam/), I mentioned a question about linux boot process. It was one of questions that I could not answer so I watched many videos and read many articles explaining the process.
+
+Well, basically the following is a kind of reformatting what I understood from wikipedia articles and some youtube videos, so don't bother seeing some text that are copied and pasted from some where =).
+
+> ## Explain how the linux boot works as much detailed as possible starting from pressing the power button.
+
+
+The short answer:
+================
+
+We can summarize the process in the following steps:
+
+1. The BIOS initializes the necessary hardware for boot then starts the boot loader from the configured boot device.
+2. The boot loader loads the kernel into memory and gives it control.
+3. The kernel setups the system (memory and driver initialization) then starts the init process.
+4. The init consists of levels of shell scripts, each of which consists of a set of run-level programs.
+5. Forming the user environment. For desktops (starts the GUI and login and session manager etc).
+
+<figure>
+	<img src="https://qph.is.quoracdn.net/main-qimg-8ae8f8f82201d9a309b1bbe608a082f9" style ="width:400px">
+</figure>
+
+
+
+The "Quite" Long Answer:
+==================
+
+## 1. BIOS:
+
+**BIOS** stands for _**B**asic **O**utput **I**nput **S**ystem_. Obviously it is the first thing to work after pressing the power button and it is OS independent (depends on the hardware). [Where is BIOS replaced?](#where-is-bios-replaced)
+
+Everyone has an experience with BIOS ugly black screen that shows up when you press the power button and its options that can be triggered by pressing delete, alt or f-keys getting you into a scary text screen with complicated settings.
+
+**Briefly BIOS has two basic tasks:**
+
+1. Run a POST (Power On Self Test) checking different input/output devices and the connected drivers, making sure every thing is well for the next step.
+2. Search sequentially for a bootable driver (that contains a valid boot loader program) then execute the boot loader from it.
+
+[Change the BIOS search order](#change-the-bios-search-order)
+
+[How the BIOS check a valid bootable driver?](#how-the-bios-check-a-valid-bootable-driver)
+
+## 2. Boot Loader:
+
+The first sector of the bootable disk partition is called MBR (Master Boot Record) and it stores information about the boot loader.
+There are many types of boot loaders and they may have one or more stages. I chose **GRUP** as it the one used on my machine:
+
+**GRUP** stands for _**GR**and **U**nified **B**ootloader_ ([see what are the advantages of GRUB?](#what-are-the-advantages-of-grub)). It has two major versions _GRUB1_ and _GRUP 2_. The later adds the features of detecting different OS installed on the machine automatically and gives the user the option to decide which OS to boot up.
+
+After that the Linux kernel is loaded into the memory and gives control to it.
+
+## 3. Kernel:
+
+An OS Kernel is the part of the system that is responsible for controlling/interacting with the hardware, memory management and many other low level staff.
+
+[What Linux really is?](#what-linux-really-is)
+
+Linux kernel is loaded into memory ([see appendix](#kernel-loading-into-memory)) then calls the setup() function that initializes memory and configures the various hardware (processors, I/O, and storage devices).
+
+Then it calls the Init process as first process to be run in the system.
+
+## 4. Init
+
+**Init** is short for _initialization_. Typically, the Init process can be find in the directory `/sbin/Init`. [What a process is?](#what-a-process-is)
+
+Init's job is to get everything running the way it should be. Essentially it establishes and operates the entire user space. This includes checking and mounting file systems, starting up necessary user services, and ultimately switching to a user-environment when system startup is completed.
+
+
+[Variation of init](#variation-of-init)
+
+## Finaly
+
+by this time the user would be prompted to enter the credentials after launching the different services for the GUI interface.
+
+--------------------------------------------
+
+You can get a quick _visual_ overview you can watch this [9 mins video](https://www.youtube.com/watch?v=y3IbvEjXF5M) from the youtube.
+
+
+__If you reached here, my congratulations for you, You are a Hero! =D if you want to get more information read the following appendix.__
+
+
+--------------------------------------------
+
+
+Appendix
+========
+
+## Where is BIOS replaced?
+
+Historicaly it is was placed on a ROM(read only memory) and to change it you have to change the memory chip. Then in modern computers, it is stored in a flash memory allowing it to be changed, configured, updated many times without replacing any chips.
+
+## Change the BIOS search order
+
+You may be familiar with that if you tried to install an OS on a machine before, first you connect a flash memory or a CD disk that contains an image of your OS. Then you can change the order the BIOS searching the drivers so that it boots from your removable disk first instead of the local hard disk.
+
+## How the BIOS check a valid bootable driver?
+
+When the BIOS searches a driver basically hard disk or (flash memory), it looks at the first sector of it. It checks the first bytes that works as boot loader flags. If that bytes was valid it consider it as a bootable drive and switch to the boot loader, else it consider it as unbootable drive.
+
+## What are the advantages of GRUB
+
+It's a free software from the GNU project. One of its advantages that it reads its configuration from a file-system rather than being embedded with the MBR. This allows the configuration file to represented in a human-readable format and to be modified easily by the user in the run time.
+
+___As a quick note___ there is another type of boot loader like SYSLINUX/ISOLINUX for booting from the FAT file-systems (used in live USBs if you tried it before).
+
+## What Linux really is?
+
+Well Linux is actually the name of the kernel (not the whole OS). The reset of the programs come from different resources mainly the GNU project so some of people insists on using GNU/Linux naming the whole OS. You can find more about [GNU/Linux naming controversy](https://en.wikipedia.org/wiki/GNU/Linux_naming_controversy)
+
+## Kernel loading into memory
+
+Linux kernel may be loaded into memory by either reading it directly form the file-system (slower) or read a compressed image of it then use the CPU to decompress it into the memory (faster).
+
+## what a process is?
+
+Briefly, in Linux a program you run launches group of process (you can see them by the command `ps -ef`). Any process has exactly one parent process (the one that called it) and one or more child processes (processes called by it). So it some thing like a tree of processes, and each process has an number(ID) called ID.
+
+Init is the root process (parent of all other processes in the system) and has no parent process and its PID = **1**, and eventually the last process to terminate (shutdown).
+
+## Variation of init:
+
+Traditionally, one of the major drawbacks of init is that it starts tasks serially, waiting for each to finish loading before moving on to the next. When startup processes end up I/O blocked, this can result in long delays during boot. So variation of the init process is appeared to address this and other design problems like (systemd, upstart, initng etc).
