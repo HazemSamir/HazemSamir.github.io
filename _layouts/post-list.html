@@ -28,7 +28,7 @@ layout: compress
                         <li class="wow" data-wow-duration="1.5s">
                             <a class="zoombtn" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
                             <div style="color:gray">
-                                <i class = "fa fa-clock-o"></i> {{post.date}}
+                                <i class = "fa fa-clock-o"></i>  {{ post.date | date: '%a ~ %d %B %Y' }}
                             </div>
                             <p>{{ post.excerpt }}</p>
                             <a href="{{ site.url }}{{ post.url }}" class="btn zoombtn">Read More</a>
