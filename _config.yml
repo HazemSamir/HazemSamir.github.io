@@ -30,6 +30,7 @@ disqus_shortname:   hazemsamirblog
 
 # Social
 # if you don't have any of social below, comment the line.
+email:              hazem.s.ashmawy@gmail.com
 google:
   #plus:            #username
   analytics:        UA-78144044-1
@@ -37,7 +38,6 @@ google:
   #ad-client:
   #ad-slot:
 #bing-verify:
-#email:
 #twitter:            username
 facebook:           Ihazemsamir
 github:             HazemSamir
