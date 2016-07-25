@@ -9,13 +9,13 @@ comments: true
 ---
 
 Yesterday I received this spam e-mail. When I first saw the subject, I thought yeah finally my ultimately powerful github profile attracted an employer attention :'D . Then when I realized that it was just an advertise for a website, I thought what is going on? is github selling our info in such a cheap way? 
-finally I remmembered that I set this email as my public email for my github account. Simply they might use github api to retrieve github users info and send this email advertising their website.
+finally I remembered that I set this email as my public email for my github account. Simply they might use github api to retrieve github users info and send this email advertising their website.
 
 <figure>
-	<img src="../assets/img/gihub_spam_email.png"></a>
+	<img src="../assets/img/gihub_spam_email.png">
 </figure>
 
-Then I was thinking what about writing a simple scrapper imitating them, So I wrote this python script and soon I will do the same using node.js.
+Then I was thinking: what about writing a simple scrapper imitating them, So I wrote this python script and soon I will do the same using node.js.
 
 
 ### GitHub API:
@@ -26,7 +26,7 @@ Github provides a nice API that I was hoping to play with it one time. Any way, 
 	GET http://api.gihub.com/users
 ```
 
-Github will send back a JSON formated response that is a JSON list of objects like with this format:
+Github will send back a JSON formated response that is a list of objects with this format:
 
 ```
 	[
@@ -87,9 +87,9 @@ def get_single_user(username):
 		return user
 ```
 
-So we are done with API part, let's Iterate over the list and send our lovely spammy mails.
+Done with API part, let's Iterate over the list and send our lovely spammy mails.
 
-Our main loop, I will use try and except to catch the exception occurs when we reach our limit per hour so we will halt for 30 minutes then try again. Obliviously the script will work for a long time so we may stop the script and restart it many times, so we don't want to start every time from the very beginning id, so I will store and update a text file beside the script with the last id we retrieved and read from it when ever the script starts, it it does not exist or badly formated, we will assume that we will begin from the beginning.
+In our main loop, we will use `try and except` to catch the exception occurs when we reach our limit of requests per hour, so we will halt for 30 minutes then try again. Obliviously the script will work for a long time so we may stop the script and restart it many times, so we don't want to start every time from the very beginning id, so I will store and update a text file beside the script with the last id we retrieved and read from it when ever the script starts, it it does not exist or badly formated, we will assume that we will begin from the beginning.
 
 Then let's use a gmail account for sending the email as explained [here](http://stackabuse.com/how-to-send-emails-with-gmail-using-python/).
 
