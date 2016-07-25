@@ -20,7 +20,7 @@ Then I was thinking: what about writing a simple scrapper imitating them, So I w
 
 ### GitHub API:
 
-Github provides a nice API that I was hoping to play with it one time. Any way, what we need here is just the users API [developer.github.com/v3/users/](https://developer.github.com/v3/users/). We just need to send a HTTP GET request with to this url:
+Github provides a nice API that I was hoping to play with it one day. What we need here is just the users API [developer.github.com/v3/users/](https://developer.github.com/v3/users/). We just need to send a HTTP GET request with to this url:
 
 ```
 	GET http://api.gihub.com/users
@@ -56,9 +56,9 @@ Github will send back a JSON formated response that is a list of objects with th
 
 So unfortunately we will need to make another request for each user in this list using `login` value with the single user request so that we can get his name and his public email.
 
-**Secondly,** we notice is github will not send us all the users at once. Which is reasonable, this will be a huge json file which will consume both their resources and ours. So they will send us the response in patches and we can retrieve these patches using the `since` parameter which take as value the last user id you want to get its next patch.
+**Secondly,** we notice that github will not send us all the users at once. Which is reasonable, this will be a huge json file which will consume both their resources and ours. So they will send us the response in patches and we can retrieve these patches using the `since` parameter which take as value the last user id you want to get its next patch.
 
-**Thirdly,** github allow max 60 requests per hour for unauthenticated requests. Unfortunately, it will take a really long long long time to spam all github users using the same machine (requests with unauthenticated requests associated with ip address), however we can increase this rate by adding our github account to the request. But come on! I am a spammer now, so I want to be as anonymous as possible. But lets look to the shiny part: we are not in hurry we don't need to optimize the performance or launch threads so our lovely script is still simple.
+**Thirdly,** github allow max 60 requests per hour for unauthenticated requests. Unfortunately, it will take a really long long long time to spam all github users using the same machine (requests with unauthenticated requests associated with ip address). However we can increase this rate by adding a github account to the request. But come on! I am a spammer now, so I want to be more anonymous. Let's look at the shiny part: we are not in hurry, we don't need to optimize the performance or launch threads, our script is still simple and small.
 
 Let's write the code:
 
@@ -93,9 +93,9 @@ In our main loop, we will use `try and except` to catch the exception occurs whe
 
 Then let's use a gmail account for sending the email as explained [here](http://stackabuse.com/how-to-send-emails-with-gmail-using-python/).
 
-So that is it, check the full code here: [github.com/HazemSamir/github_scrapper](https://github.com/HazemSamir/github_scrapper), simple and easy for a fun hour of coding.
+So that is it, check the full code here: [github.com/HazemSamir/github_scrapper](https://github.com/HazemSamir/github_scrapper), simple and easy for a fun hour of coding. Feel free to try or modify it and notify me if some thing went wrong.
 
 #### what to do next:
 
-- I will try to rewrite the code uisng node.js.
+- Try to rewrite the code uisng node.js.
 - Try to use the code on a network of machines and try to sync them.
