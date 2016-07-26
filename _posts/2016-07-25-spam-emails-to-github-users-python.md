@@ -15,41 +15,41 @@ finally I remembered that I set this email as my public email for my github acco
 	<img src="../assets/img/gihub_spam_email.png">
 </figure>
 
-Then I was thinking: what about writing a simple scrapper imitating them, So I wrote this python script and soon I will do the same using node.js.
+Then I was thinking: what about writing a simple scrapper like theirs?, So I wrote this python script and hopefully I will do the same using node.js soon.
 
 
 ### GitHub API:
 
-Github provides a nice API that I was hoping to play with it one day. What we need here is just the users API [developer.github.com/v3/users/](https://developer.github.com/v3/users/). We just need to send a HTTP GET request with to this url:
+Github provides a nice API that I was hoping to play with it one day. What we need here is just the users API [developer.github.com/v3/users/](https://developer.github.com/v3/users/). We just need to send a simple HTTP GET request with to this url:
 
 ```
-	GET http://api.gihub.com/users
+GET http://api.gihub.com/users
 ```
 
-Github will send back a JSON formated response that is a list of objects with this format:
+Github will send back a JSON formated response which is a list of objects with this format:
 
-```
-	[
-	  {
-	    "login": "octocat",
-	    "id": 1,
-	    "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-	    "gravatar_id": "",
-	    "url": "https://api.github.com/users/octocat",
-	    "html_url": "https://github.com/octocat",
-	    "followers_url": "https://api.github.com/users/octocat/followers",
-	    "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-	    "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-	    "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-	    "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-	    "organizations_url": "https://api.github.com/users/octocat/orgs",
-	    "repos_url": "https://api.github.com/users/octocat/repos",
-	    "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-	    "received_events_url": "https://api.github.com/users/octocat/received_events",
-	    "type": "User",
-	    "site_admin": false
-	  }
-	]
+``` JSON
+[
+  {
+    "login": "octocat",
+    "id": 1,
+    "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/octocat",
+    "html_url": "https://github.com/octocat",
+    "followers_url": "https://api.github.com/users/octocat/followers",
+    "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+    "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+    "organizations_url": "https://api.github.com/users/octocat/orgs",
+    "repos_url": "https://api.github.com/users/octocat/repos",
+    "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/octocat/received_events",
+    "type": "User",
+    "site_admin": false
+  }
+]
 ```
 
 **Firstly,** this is not a full user object like the one we get when using the single user request described at the beginning of the the API documentation. It does not have the information we need, more specifically the public email address of the user.
@@ -89,7 +89,7 @@ def get_single_user(username):
 
 Done with API part, let's Iterate over the list and send our lovely spammy mails.
 
-In our main loop, we will use `try and except` to catch the exception occurs when we reach our limit of requests per hour, so we will halt for 30 minutes then try again. Obliviously the script will work for a long time so we may stop the script and restart it many times, so we don't want to start every time from the very beginning id, so I will store and update a text file beside the script with the last id we retrieved and read from it when ever the script starts, it it does not exist or badly formated, we will assume that we will begin from the beginning.
+In our main loop, we will use `try and except` to catch the exception occurs when we reach our limit of requests per hour, then we will halt for 30 minutes then try again. Obliviously the script will work for a long time so we may stop the script and restart it many times and we don't want to start every time from the very beginning id, so I will store and update a text file beside the script with the last id we retrieved and read from it when ever the script starts, it it does not exist or badly formated, we will assume that we will begin from the beginning.
 
 Then let's use a gmail account for sending the email as explained [here](http://stackabuse.com/how-to-send-emails-with-gmail-using-python/).
 
