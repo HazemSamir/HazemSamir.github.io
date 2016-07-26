@@ -89,28 +89,6 @@ def get_single_user(username):
 
 Done with API part, let's Iterate over the list and send our lovely spammy mails.
 
----------------------------------------------------------
-
-<p>
-Hey there,<br><br>
-
-<q> I came across your Github account and felt compelled to reach out. </q> <br><br>
-I am just a simple bot built to spam github users who have a public email on their github profile like you.<br> 
-I was created by a github user who got a spam email like this from a person called Sara Hincapie from careerscore.com.
-He think that they use github api to spam users and invite them to their website so he tried to write a scrapper like them. <br><br>
-			
-So if I passed your spam filter, and you read this message then I succeeded in my only mission in life. <br><br>
-
-sorry to bother you,<br><br>
-
-Cheers,<br><br>
-Scrapper of Github
-			
-<h6> careerscore.com-like bot </h6>
-</p>
-
-----------------------------------------------------------
-
 In our main loop, we will use `try and except` to catch the exception occurs when we reach our limit of requests per hour, then we will halt for 30 minutes then try again. Obliviously the script will work for a long time so we may stop the script and restart it many times and we don't want to start every time from the very beginning id, so I will store and update a text file beside the script with the last id we retrieved and read from it when ever the script starts, it it does not exist or badly formated, we will assume that we will begin from the beginning.
 
 Then let's use a gmail account for sending the email as explained [here](http://stackabuse.com/how-to-send-emails-with-gmail-using-python/).
