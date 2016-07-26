@@ -89,6 +89,8 @@ def get_single_user(username):
 
 Done with API part, let's Iterate over the list and send our lovely spammy mails.
 
+---------------------------------------------------------
+
 <p>
 Hey there,<br><br>
 
@@ -106,6 +108,8 @@ Scrapper of Github
 			
 <h6> careerscore.com-like bot </h6>
 </p>
+
+----------------------------------------------------------
 
 In our main loop, we will use `try and except` to catch the exception occurs when we reach our limit of requests per hour, then we will halt for 30 minutes then try again. Obliviously the script will work for a long time so we may stop the script and restart it many times and we don't want to start every time from the very beginning id, so I will store and update a text file beside the script with the last id we retrieved and read from it when ever the script starts, it it does not exist or badly formated, we will assume that we will begin from the beginning.
 
