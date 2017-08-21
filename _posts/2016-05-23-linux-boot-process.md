@@ -2,10 +2,6 @@
 layout: post
 title: "Linux boot process in a nutshell"
 date: 2016-05-24
-type: tech
-excerpt: "what happens in the background from pressing the power button till the prompt"
-tags: [espace, intern, exam, linux, boot, grup, bios]
-comments: true
 ---
 
 In my last post about [espace exam](http://hazemsamir.github.io/espace-intern-exam/), I mentioned a question about linux boot process. It was one of the questions that I couldn't answer then, so I watched many videos and read articles explaining the process.

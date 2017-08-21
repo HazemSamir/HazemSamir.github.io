@@ -1,74 +1,31 @@
-# Site
-title:              Hazem Samir
-bio:                'A computer engineering student who loves learning new things'
-description:        "A computer engineering student who loves learning new things"
-reading_time:       false
-words_per_minute:   200
-logo:               'assets/img/me.jpg'
-background:         'assets/img/background_single_color.png'
-tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
-locale:             en_US
-url:                http://hazemsamir.github.io/
+# Permalinks
+permalink:      /:title
 
-# Jekyll
-permalink:          /:title/
-markdown:           kramdown
-highlighter:        rouge
-kramdown:
-  auto_ids:         true
-  footnote_nr:      1
-  entity_output:    as_char
-  toc_levels:       1..6
-  enable_coderay:   false
-mathjax:            true
+# Setup
+title:          Z00MER's
+paginate:       10
+baseurl:        ""
+url:            "https://hazemsamir.github.io/"
+
+# Assets
 sass:
-  sass_dir:         _sass
-  style:            compressed
+  sass_dir:     _sass
+  style:        :compressed
 
-# Comments
-disqus_shortname:   hazemsamirblog
+# Build settings
+markdown:       kramdown
 
-# Social
-# if you don't have any of social below, comment the line.
-email:              hazem.s.ashmawy@gmail.com
-google:
-  #plus:            #username
-  analytics:        UA-78144044-1
-  #verify:
-  #ad-client:
-  #ad-slot:
-#bing-verify:
-#twitter:            username
-facebook:           Ihazemsamir
-github:             HazemSamir
-#stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
-linkedin:          hazemsamir
-#xing:              username
-#instagram:          username
-#lastfm:            username
-#tumblr:            username
-#pinterest:         username
-#foursquare:        username
-#steam:              username
-#dribbble:          username
-#youtube:           username
-#soundcloud:        username
-#weibo:             username
-#flickr:            username
-#codepen:           username
-#keybase:           username
-#xmpp:              username@server.com
-#hackernews:        username
+# About
+author:
+  name:         Hazem Ashmawy
+  url:          http://hazemsamir.github.io
+  email:        hazem.s.ashmawy@gmail.com
+
+# Custom vars
+version:        3.4.1
+github:
+  repo:         https://github.com/chesterhow/tale
 
 # Gems
 gems:
-  - jekyll-mentions
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-gist
-
-jekyll-mentions:
-    base_url: https://github.com
-
-# Exclude list
-exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile]
+  - jekyll-paginate

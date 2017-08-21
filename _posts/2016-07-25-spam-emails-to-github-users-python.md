@@ -2,17 +2,13 @@
 layout: post
 title: "Sending spam emails to github users [python script]"
 date: 2016-07-25
-type: tech
-excerpt: "simple python script to send spam emails to github users using github api"
-tags: [python, api, github]
-comments: true
 ---
 
 Yesterday I received this spam e-mail. When I first saw the subject, I thought yeah finally my ultimately powerful github profile attracted an employer attention :'D . Then when I realized that it was just an advertise for a website, I thought what is going on? is github selling our info in such a cheap way? 
 finally I remembered that I set this email as my public email for my github account. Simply they might use github api to retrieve github users info and send this email advertising their website.
 
 <figure>
-	<img src="../assets/img/gihub_spam_email.png">
+	<img src="/data/images/gihub_spam_email.png">
 </figure>
 
 Then I was thinking: what about writing a simple scrapper like theirs?, So I wrote this python script and hopefully I will do the same using node.js soon.

@@ -2,13 +2,9 @@
 layout: post
 title: "eSpace internship exam"
 date: 2016-05-17
-type: tech
-excerpt: "my experience on espace internship exam"
-tags: [espace, intern, internship, exam]
-comments: true
 ---
 <figure>
-	<a href="http://www.espace.com.eg"><img src="../assets/img/espace.jpg"></a>
+	<a href="http://www.espace.com.eg"><img src="/data/images/espace.jpg"></a>
 </figure>
 
 Today (17th May 2016) was my exam date for software internship position at [eSpace](http://www.espace.com.eg) company. Although what a friend of mine told me about his exam yesterday (has strange questions that ask about strange technical terms), I decided to attend the exam to just take the experience even if I was not hired by the company.
