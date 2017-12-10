@@ -4,7 +4,7 @@ title: "Sending spam emails to github users [python script]"
 date: 2016-07-25
 ---
 
-Yesterday I received this e-mail. When I first saw the subject, I thought yay! finally my ultimately powerful github profile attracted an employer attention :'D . Then, I realized that it was just an scam ad for a website. What is going on? Is github selling our info in such a cheap way? Finally I remembered that I set this email as my public email for my github account. Simply, they might use github API to retrieve github users info and send this email advertising their website to them.
+Yesterday I received this e-mail. When I first saw the subject, I thought yay! finally my ultimately powerful github profile attracted an employer attention :'D . Then, I realized that it was just a scam ad for a website. What is going on? Is github selling our info in such a cheap way? Finally I remembered that I set this email as my public email for my github account. Simply, they might use github API to retrieve github users info and send this email advertising their website to them.
 
 <figure>
 	<img src="/data/images/gihub_spam_email.png">
