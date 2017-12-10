@@ -7,18 +7,18 @@ date: 2016-05-17
 	<a href="http://www.espace.com.eg"><img src="/data/images/espace.jpg"></a>
 </figure>
 
-Today (17th May 2016) was my exam date for software internship position at [eSpace](http://www.espace.com.eg) company. Although what a friend of mine told me about his exam yesterday (has strange questions that ask about strange technical terms), I decided to attend the exam to just take the experience even if I was not hired by the company.
+Today (17th May 2016) I had my exam for software internship position at [eSpace](http://www.espace.com.eg) company. Despite what a colleague told me about his exam yesterday _"It had strange questions asking about strange technical terms"_, I decided to attend the exam, to just have the experience even if I would not be hired by the company.
 
-# Company Office:
+# Company Office
 
-So the first impression about the company office was nice. I only went to two tech companies here in Egypt (espace and baderIT). ESpace has a relatively wide open area for employees desks and a nice meeting room (where the exam were held). However I noticed something strange, the company door was closed and we had to knock on it and ring the bell to get in.
+The first impression about the company office was nice. I've only been to 2 tech companies here in Egypt (espace and baderIT). ESpace has a relatively wide open area for employees desks and a nice meeting room (where the exam were held). However I noticed something strange, the company door was closed and we had to ring the bell to get in.
 
-# Exam Structure:
+# Exam Structure
 
-It was a paper based exam for one hour. You should choose 3 out of 7 topics : System Structure, Security, DataBases, Web Development, Mobile Development, Open-Source&Linux and Algorithms&DataStructures. Well, most of the topics cover courses we study in our 3rd year at our faculty. However I chose the topics I most familiar with: web, linux and algorithms.
+It was a paper based exam for one hour. You should choose 3 out of 7 topics : System Structure, Security, DataBases, Web Development, Mobile Development, Open-Source & Linux and Algorithms & DataStructures. Most of them are covered by courses we study in our 3rd year at our faculty. However, I chose the topics I feel most familiar with: web, linux and algorithms.
 
 
-## Web Development Part:
+## Web Development Part
 
 There were 3 questions:
 
@@ -30,7 +30,7 @@ There were 3 questions:
 
 
 
-## Open Source and Linux Part:
+## Open Source and Linux Part
 
 There were 3 questions:
 
@@ -41,7 +41,7 @@ There were 3 questions:
 3. Explain how the linux boot works as much detailed as possible starting from pressing the power button.
 
 
-## Algorithms and Datastructure Part:
+## Algorithms and Datastructure Part
 
 There were 2 questions:
 
