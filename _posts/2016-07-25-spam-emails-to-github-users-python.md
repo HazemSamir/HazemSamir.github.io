@@ -13,17 +13,17 @@ Yesterday I received this e-mail. When I first saw the subject, I thought yay! f
 Then I was thinking: what about writing a simple API scrapper like theirs? So I wrote this python script and hopefully I will do the same using node.js soon.
 
 
-### GitHub API:
+### GitHub API
 
 Github provides a nice API that I was always looking to playing with one day. We only need the users API here [developer.github.com/v3/users/](https://developer.github.com/v3/users/). We all we need to do is to send a simple HTTP GET request to this url:
 
-```
+{% highlight bash %}
 GET http://api.gihub.com/users
-```
+{% endhighlight %}
 
 Github will send back a JSON formated response containing a list of users of this format:
 
-```javascript
+{% highlight js  linenos %}
 [
   {
     "login": "octocat",
@@ -45,7 +45,7 @@ Github will send back a JSON formated response containing a list of users of thi
     "site_admin": false
   }
 ]
-```
+{% endhighlight %}
 
 **Firstly,** this is not a full user object like the one we get when using the single user request described at the beginning of the the API documentation. It does not have the information we need, specifically the public email address of the user.
 
@@ -57,22 +57,22 @@ So unfortunately we will need to make another request for each user in this list
 
 Let's write the code:
 
-### GET request for retrieving the API:
+### GET request for retrieving the API
 
 I will use `urllib2` library as it provides an ultimately easy interface for sending and parsing HTTP requests and responses (just one function call).
 
 Let's start with a simple function that takes last id we had, sends a request to the API, parses the JSON response and returns it.
 
-``` python
+{% highlight python linenos %}
 def get_all_users_api(last_id=0):
 	response = urllib2.urlopen("https://api.github.com/users?since=" + str(last_id))
 	if response.getcode() == 200: # success
 		users_list = json.load(response)
 		return users_list
-```
+{% endhighlight %}
 Then a similar function that sends a single user request and returns the user object.
 
-``` python
+{% highlight python linenos %}
 def get_single_user(username):
 	if username: # not empty
 		response = urllib2.urlopen("https://api.github.com/users/" + username)
@@ -80,7 +80,7 @@ def get_single_user(username):
 		if response.getcode() == 200: # success
 			user = json.load(response)
 		return user
-```
+{% endhighlight %}
 
 Done with API part, let's iterate over the list and send our lovely spammy mails.
 
@@ -90,7 +90,7 @@ Then let's use a gmail account for sending the email as explained [here](http://
 
 That's it, you can check the full code here: [github.com/HazemSamir/github_scrapper](https://github.com/HazemSamir/github_scrapper), a fun hour of coding. Feel free to play with it.
 
-#### what to do next:
+#### what to do next
 
 - Try to rewrite the code uisng node.js.
 - Try to use the code on a network of machines and try to sync them.
