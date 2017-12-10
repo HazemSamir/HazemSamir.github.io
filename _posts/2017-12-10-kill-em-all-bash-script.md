@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Kill 'em all! [bash script]"
-subtitle: "Kill all child process ub-tree rooted at a parent process"
+subtitle: "Kill all child processes in the sub-tree rooted at a given parent process"
 date: 2017-12-10
 ---
 
@@ -20,9 +20,9 @@ propagates the killing signal received to its children or not.
 
 One elegant way I found on Stack Over Flow was this nice command:
 
-```
+{% highlight bash %}
 kill -- -$(ps -o pgid= $PID | grep -o '[0-9]*')
-```
+{% endhighlight %}
 
 It first finds the id `GPID` of the process group that the given pid belongs to. Then, it 
 sends the default `TERM` signal to all the processes within that group `GPID`. Nice, short and 
