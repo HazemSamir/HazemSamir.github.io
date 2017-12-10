@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kill 'em all! - A bash script to kill all sub-tree of a parent process"
+title: "Kill 'em all! - Kill all sub-tree of a parent process [bash script]"
 date: 2017-12-10
 ---
 
