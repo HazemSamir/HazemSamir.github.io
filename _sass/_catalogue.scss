@@ -29,6 +29,15 @@
     font-weight: 700;
     margin: .5rem 0;
   }
+  
+  &-subtitle {
+    color: $default-tint;
+    display: block;
+    font-family: $sans-font;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: .5rem 0;
+  }
 
   &-line {
     @include transition(all .3s ease-out);

@@ -9,10 +9,13 @@ title: Home
       <div>
         <time datetime="{{ post.date }}" class="catalogue-time">{{ post.date | date: "%B %d, %Y" }}</time>
         <h1 class="catalogue-title">{{ post.title }}</h1>
+        {% if post.subtitle %}
+        <h2 class="catalogue-subtitle">{{ post.subtitle }}</h2>
+        {% endif %}
         <div class="catalogue-line"></div>
 
         <p>
-          {{ post.content | truncatewords: 30 | strip_html }}
+          {{ post.content | truncatewords: 35 | strip_html }}
         </p>
 
       </div>
@@ -22,10 +25,12 @@ title: Home
 
 <div class="pagination">
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="left arrow">&#8592;</a>
+    Previous
+    <a href="{{ paginator.previous_page_path | prepend: site.url }}" class="left arrow">&#8592; Previous page</a>
   {% endif %}
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.url }}" class="right arrow">&#8594;</a>
+     Next
+    <a href="{{ paginator.next_page_path | prepend: site.url }}" class="right arrow">&#8594; Next page</a>
   {% endif %}
 
   <span>{{ paginator.page }}</span>
